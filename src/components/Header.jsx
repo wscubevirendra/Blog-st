@@ -9,7 +9,7 @@ import { FaRegArrowAltCircleUp } from "react-icons/fa";
 
 
 export default function Header() {
-  const { user } = useContext(MainContext)
+  const { User } = useContext(MainContext)
   const [toggle, settoggle] = useState(true)
 
 
@@ -33,16 +33,16 @@ export default function Header() {
       <div className='w-full  md:max-w-[1400px] mx-auto py-4  relative px-4  sm:sticky top-0 text-xl justify-between flex text-[white] '>
         <h1 className='text-[#45ce55] text-2xl ml-2 sm:ml-0 font-extrabold'>Blog-<span className='text-[#ff4d00]'>st</span></h1>
         <div className='hidden sm:block'>
-          <ul className='flex text-lg  gap-16 cursor-pointer'>
+          <ul className='flex  text-lg  gap-16 cursor-pointer'>
             {
               menu.map((d, i) => {
-                return <Link key={i} to={d.link}> <li className=' capitalize' >{d.name}</li></Link>
+                return <Link key={i} to={d.link}> <li className='hover:text-[#45ce55]  font-bold capitalize' >{d.name}</li></Link>
               })
             }
             <li>
               <Link to="/user">
                 {
-                  user == null ?
+                  User === null ?
                     <button onClick={() => {
                       localStorage.clear();
 
@@ -76,13 +76,13 @@ export default function Header() {
           <ul className='flex flex-col text-lg gap-20 pt-10 items-center cursor-pointer'>
             {
               menu.map((d, i) => {
-                return <Link key={i} to={d.link}> <li onClick={changehandle} className=' capitalize' >{d.name}</li></Link>
+                return <Link key={i} to={d.link}> <li onClick={changehandle} className='hover:text-[#45ce55] hover:font-bold capitalize' >{d.name}</li></Link>
               })
             }
             <li>
               <Link to="/user">
                 {
-                  user == null ?
+                  User === null ?
                     <button onClick={() => {
                       localStorage.clear();
 

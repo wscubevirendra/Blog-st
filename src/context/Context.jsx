@@ -6,6 +6,7 @@ import { v1 as uniqueId } from "uuid";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const MainContext=createContext();
 
 //project details  firebaseConfig
@@ -27,7 +28,7 @@ const firebaseConfig = {
 
 export default function Context(props) {
   //state for user details store in localstrorage
-  const [user, setUser] = useState(null);
+  const [User, setUser] = useState(JSON.parse(localStorage.getItem('user')));
   //state for all blogs data store and display
   const [blogs, setblogs] = useState([]);
   //loading animation state
@@ -74,9 +75,14 @@ export default function Context(props) {
     });
   }
 
+
+
+
+
+
   return (
 
-    <MainContext.Provider value={{blogs,createBlog,notify,setUser,user,load,scrollToTop}}>
+    <MainContext.Provider value={{blogs,createBlog,notify,User,setUser,load,scrollToTop}}>
     {props.children}
     <ToastContainer />
     </MainContext.Provider>

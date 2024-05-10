@@ -22,9 +22,6 @@ const routers=createBrowserRouter(
         },{
           path:"/listing",
           element:<Listing/>
-        },{
-          path:"/edit/:id",
-          element:<Edit/>
         }
       ]
     },

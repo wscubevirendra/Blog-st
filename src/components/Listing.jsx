@@ -5,19 +5,16 @@ import Loading from './Loading';
 
 export default function Listing() {
   const navigate = useNavigate();
-  const { blogs, setUser, load } = useContext(MainContext);
+  const { blogs,User, load } = useContext(MainContext);
 
-  const checkUserLogin = () => {
-    const lsUser = JSON.parse(localStorage.getItem('user'));
-    if (lsUser !== null) {
-      setUser(lsUser);
-    } else {
-      navigate('/user');
+  const NavigateUser = () => {
+    if (User == null) {
+      navigate("/user");
     }
   };
 
   useEffect(() => {
-    checkUserLogin();
+    NavigateUser();
   }, []);
 
   return (
@@ -57,11 +54,11 @@ function Listing_Data({data,i}) {
     <td className="border px-4 py-2">{data.heading}</td>
     <td className="border px-4 py-2">{data.desciption}</td>
     <td className="border px-4 py-2 text-center">
-      <Link to={`/edit/${data.id}`}>
+     
         <button className="py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
           Edit
         </button>
-      </Link>
+     
     </td>
   </tr>
   )

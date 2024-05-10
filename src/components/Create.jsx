@@ -6,21 +6,18 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Create() {
   const navigate=useNavigate()
- const { blogs, setUser,load ,createBlog} = useContext(MainContext);
+ const { blogs, User,load ,createBlog} = useContext(MainContext);
 
- const checkUserLogin = () => {
-   const lsUser = JSON.parse(localStorage.getItem('user'));
-   if (lsUser !== null) {
-     setUser(lsUser);
-   } else {
-     navigate('/user');
-   }
- };
 
- useEffect(() => {
-   checkUserLogin();
- }, []);
+  const NavigateUser = () => {
+    if (User == null) {
+      navigate("/user");
+    }
+  };
 
+  useEffect(() => {
+    NavigateUser();
+  }, []);
  
     const submitHandler = (event) => {
         event.preventDefault();

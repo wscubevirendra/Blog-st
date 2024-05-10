@@ -22,7 +22,7 @@ export default function Blogs() {
         load == true ?
         <Loading/>
 :
-<div className='grid py-10 sm:ml-14 px-4 md:grid-cols-2 lg:grid-cols-3'>
+<div className='grid py-10 sm:ml-6 px-6 sm:px-4 md:grid-cols-2 lg:grid-cols-3'>
 {
  blogs.sort((a, b) => new Date(b.date_of_post) - new Date(a.date_of_post))
  .slice(0, visibleBlogs).map((data, i) => {
@@ -48,11 +48,12 @@ export default function Blogs() {
 
  function Box({data}) {
   return (
-    <div style={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px 5px 15px' }} className='md:max-w-[330px] text-sm  text-wrap rounded-lg text-justify min-h-[300px] mb-10 flex flex-col gap-4 p-4 shadow-xl'>
-    <h1 >{formatDistanceToNow(new Date(data.date_of_post))} ago</h1>
-    <h1 className='text-xl capitalize font-bold'>{data.heading}</h1>
+    <div style={{ boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }} className='md:max-w-[380px] text-sm  text-wrap rounded-sm text-justify min-h-[300px] mb-10 flex justify-around flex-col  p-4 '>
+   
+    <h1 className='text-xl capitalize  font-bold'>{data.heading}</h1>
     <p>{data.desciption}</p>
-    <hr />
+    <h1 >{formatDistanceToNow(new Date(data.date_of_post))} ago</h1>
+   
     
   </div>
   )

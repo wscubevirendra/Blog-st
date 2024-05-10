@@ -10,14 +10,12 @@
 
   
 
-  ul li:hover{
-color: red;
-  }
+
 
 
 .setbg{
 
-  background-image: url('../public//img//slider-landing.jpg');
+  background-image: url('../public//img/slider-landing.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
